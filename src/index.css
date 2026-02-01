@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Safari Dark Theme - Clean Black to Deep Green */
+    --background: 150 14% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 156 18% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 156 18% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 40 47% 60%;
+    --primary-foreground: 150 14% 5%;
+
+    --secondary: 150 47% 11%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 150 10% 15%;
+    --muted-foreground: 140 7% 76%;
+
+    --accent: 156 18% 12%;
+    --accent-foreground: 40 47% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 18%;
+    --input: 156 18% 12%;
+    --ring: 40 47% 60%;
+
+    --radius: 0.75rem;
+
+    /* Safari Custom Colors - No Brown */
+    --safari-gold: 40 47% 60%;
+    --safari-dark: 150 14% 5%;
+    --safari-forest: 150 47% 11%;
+    --safari-earth: 156 18% 12%;
+    --safari-mist: 140 7% 76%;
+
+    /* Gradients - Clean Black to Green, No Brown */
+    --gradient-primary: linear-gradient(135deg, hsl(150 50% 25%) 0%, hsl(40 47% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(150 14% 5% / 0.7) 50%, hsl(150 14% 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(150 47% 11% / 0.5) 0%, hsl(156 18% 12% / 0.3) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(150 14% 5%) 0%, hsl(150 47% 11% / 0.3) 50%, hsl(150 14% 5%) 100%);
+
+    /* Glassmorphism */
+    --glass-bg: hsl(150 14% 5% / 0.7);
+    --glass-border: hsl(40 47% 60% / 0.2);
+    --glass-glow: 0 0 30px hsl(40 47% 60% / 0.15);
+
+    /* Sidebar (keeping for shadcn) */
+    --sidebar-background: 150 14% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 40 47% 60%;
+    --sidebar-primary-foreground: 150 14% 5%;
+    --sidebar-accent: 150 47% 11%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 150 20% 18%;
+    --sidebar-ring: 40 47% 60%;
+  }
+
+  /* Jungle Green Mode */
+  .jungle-mode {
+    --background: 156 30% 8%;
+    --card: 156 25% 12%;
+    --popover: 156 25% 12%;
+    --secondary: 156 35% 15%;
+    --muted: 156 20% 18%;
+    --accent: 156 25% 14%;
+    --border: 156 25% 20%;
+    --input: 156 25% 14%;
+    --glass-bg: hsl(156 30% 8% / 0.7);
+    --gradient-section: linear-gradient(180deg, hsl(156 30% 8%) 0%, hsl(156 35% 15% / 0.3) 50%, hsl(156 30% 8%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply backdrop-blur-xl rounded-2xl border;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-glow);
+  }
+
+  /* Safari Gold Gradient Button */
+  .btn-safari {
+    @apply px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300;
+    background: var(--gradient-primary);
+    color: hsl(var(--background));
+    box-shadow: 0 4px 20px hsl(40 47% 60% / 0.3);
+  }
+
+  .btn-safari:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(40 47% 60% / 0.4);
+  }
+
+  /* Outline Button */
+  .btn-outline-safari {
+    @apply px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 border-2;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: transparent;
+  }
+
+  .btn-outline-safari:hover {
+    background: hsl(var(--primary) / 0.1);
+    box-shadow: 0 0 20px hsl(40 47% 60% / 0.2);
+  }
+
+  /* Infinite Scroll Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Pulse Animation for Chat */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(40 47% 60% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 15px hsl(40 47% 60% / 0);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Fade edges for strip */
+  .fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
