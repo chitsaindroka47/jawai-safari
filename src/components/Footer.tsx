@@ -22,10 +22,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/jawai_wild_booking?igsh=aGh1a3o3YnVicDQ3' },
     { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
     { name: 'YouTube', icon: Youtube, href: 'https://youtube.com' },
-    { name: 'Google', icon: GoogleBusinessIcon, href: 'https://google.com/business' },
+    { name: 'Google', icon: GoogleBusinessIcon, href: 'https://share.google/YsxgUbznKQOsgWMa4' },
   ];
 
   return (
@@ -124,7 +124,7 @@ const Footer = () => {
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Mail size={18} className="text-primary" />
-              info@wildadventures.com
+              jawaiwildsafaribookings@gmail.com
             </a>
           </motion.div>
 
