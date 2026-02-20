@@ -196,3 +196,27 @@
     font-family: 'Inter', sans-serif;
   }
 }
+/* ===== Moving Image Strip Animation ===== */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+}
+
+
+/* 📱 Faster speed on mobile */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: 40s;
+  }
+}

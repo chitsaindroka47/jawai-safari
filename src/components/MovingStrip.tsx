@@ -3,7 +3,7 @@ import jungleImage from '@/assets/jungle-trail.jpg';
 import safariImage from '@/assets/about-safari.png';
 import campfireImage from '@/assets/private-safari.jpg';
 import sunsetImage from '@/assets/sunset-safari.jpg';
-import wildlifeImage from '@/assets/wildlife-closeup.jpg';
+import wildlifeImage from '@/assets/tracking.jpg';
 import memoriesImage from '@/assets/memories.png';
 
 const images = [
@@ -17,7 +17,7 @@ const images = [
 ];
 
 const MovingStrip = () => {
-  // Double the images for seamless loop
+  // Double images for seamless loop
   const allImages = [...images, ...images];
 
   return (
@@ -30,12 +30,12 @@ const MovingStrip = () => {
           {allImages.map((img, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-64 md:w-80 h-48 md:h-56 mx-3 rounded-2xl overflow-hidden group"
+              className="flex-shrink-0 w-64 md:w-80 h-48 md:h-56 mx-3 rounded-2xl overflow-hidden"
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}

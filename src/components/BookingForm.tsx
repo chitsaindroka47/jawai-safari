@@ -19,11 +19,13 @@ const BookingForm = () => {
     guests: '2',
     message: '',
   });
+
   const [date, setDate] = useState<Date | undefined>();
+  const [open, setOpen] = useState(false); // 👈 calendar open state
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.phone || !date) {
       toast({
         title: "Please fill all required fields",
@@ -41,7 +43,10 @@ Date: ${date ? format(date, 'PPP') : 'Not selected'}
 Guests: ${formData.guests}
 Message: ${formData.message || 'No additional message'}`;
 
-    window.open(`https://wa.me/918619821140?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(
+      `https://wa.me/918619821140?text=${encodeURIComponent(message)}`,
+      '_blank'
+    );
 
     toast({
       title: "Booking Request Sent!",
@@ -57,7 +62,8 @@ Message: ${formData.message || 'No additional message'}`;
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
 
       <div className="container mx-auto relative z-10">
-        {/* Section Header */}
+
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -67,13 +73,15 @@ Message: ${formData.message || 'No additional message'}`;
           <span className="text-primary font-medium uppercase tracking-wider text-sm">
             Book Now
           </span>
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3">
             Reserve Your <span className="text-gradient">Safari</span>
           </h2>
         </motion.div>
 
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Left - Text */}
+
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -81,9 +89,10 @@ Message: ${formData.message || 'No additional message'}`;
             className="space-y-6"
           >
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Plan your perfect safari by choosing your preferred package, date, and number of guests. 
-              Our team will personally confirm your booking.
+              Plan your perfect safari by choosing your preferred package, date,
+              and number of guests. Our team will personally confirm your booking.
             </p>
+
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
@@ -91,12 +100,14 @@ Message: ${formData.message || 'No additional message'}`;
                 </div>
                 <span className="text-muted-foreground">Flexible scheduling</span>
               </div>
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <Users size={20} className="text-primary" />
                 </div>
                 <span className="text-muted-foreground">Groups of all sizes welcome</span>
               </div>
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <Phone size={20} className="text-primary" />
@@ -106,7 +117,7 @@ Message: ${formData.message || 'No additional message'}`;
             </div>
           </motion.div>
 
-          {/* Right - Form */}
+          {/* FORM */}
           <motion.form
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -114,52 +125,59 @@ Message: ${formData.message || 'No additional message'}`;
             onSubmit={handleSubmit}
             className="glass-card p-6 md:p-8 space-y-4 min-h-[80vh] md:min-h-0 flex flex-col justify-center"
           >
-            {/* Name */}
+
+            {/* NAME */}
             <div className="relative">
               <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Full Name *"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 required
               />
             </div>
 
-            {/* Email */}
+            {/* EMAIL */}
             <div className="relative">
               <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="email"
                 placeholder="Email Address *"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 required
               />
             </div>
 
-            {/* Phone */}
+            {/* PHONE */}
             <div className="relative">
               <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="tel"
                 placeholder="Phone Number *"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 required
               />
             </div>
 
-            {/* Date */}
-            <Popover>
+            {/* DATE */}
+            <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
                 <button
                   type="button"
                   className={cn(
-                    "w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl text-left focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all relative",
+                    "w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl text-left focus:border-primary focus:ring-1 focus:ring-primary outline-none relative",
                     !date && "text-muted-foreground"
                   )}
                 >
@@ -167,27 +185,33 @@ Message: ${formData.message || 'No additional message'}`;
                   {date ? format(date, "PPP") : "Select Date *"}
                 </button>
               </PopoverTrigger>
+
               <PopoverContent className="w-auto p-0 glass-card" align="start">
                 <CalendarComponent
                   mode="single"
                   selected={date}
-                  onSelect={setDate}
-                  disabled={(date) => date < new Date()}
+                  onSelect={(selected) => {
+                    setDate(selected);
+                    setOpen(false); // 👈 CLOSE AFTER SELECT
+                  }}
+                  disabled={(d) => d < new Date()}
                   initialFocus
-                  className={cn("p-3 pointer-events-auto")}
+                  className="p-3"
                 />
               </PopoverContent>
             </Popover>
 
-            {/* Guests */}
+            {/* GUESTS */}
             <div className="relative">
               <Users size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <select
                 value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none cursor-pointer"
+                onChange={(e) =>
+                  setFormData({ ...formData, guests: e.target.value })
+                }
+                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none"
               >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                {[1,2,3,4,5,6,7,8,9,10].map((num) => (
                   <option key={num} value={num}>
                     {num} {num === 1 ? 'Guest' : 'Guests'}
                   </option>
@@ -195,19 +219,21 @@ Message: ${formData.message || 'No additional message'}`;
               </select>
             </div>
 
-            {/* Message */}
+            {/* MESSAGE */}
             <div className="relative">
               <MessageSquare size={18} className="absolute left-4 top-4 text-muted-foreground" />
               <textarea
                 placeholder="Additional Message (Optional)"
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 rows={3}
-                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+                className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"
               />
             </div>
 
-            {/* Submit */}
+            {/* SUBMIT */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -217,6 +243,7 @@ Message: ${formData.message || 'No additional message'}`;
               <Send size={18} />
               Submit Booking Request
             </motion.button>
+
           </motion.form>
         </div>
       </div>
