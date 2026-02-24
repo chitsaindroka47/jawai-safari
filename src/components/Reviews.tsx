@@ -11,7 +11,7 @@ const reviews = [
     time: '2 months ago',
   },
   {
-    name: 'Vishal Nagar',
+    name: 'Lovely Pareek',
     rating: 5,
     text: 'It was a really awesome experience',
     avatar: 'VN',
