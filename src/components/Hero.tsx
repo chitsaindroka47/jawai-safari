@@ -47,7 +47,7 @@ const Hero = () => {
 
           {/* Subtext */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Explore unforgettable jungle safari adventures at Jawai Wild Bookings. 
+            Explore unforgettable jungle safari adventures at Jawai Wild Safari Bookings. 
             Witness majestic leopards in their natural habitat.
           </p>
 
