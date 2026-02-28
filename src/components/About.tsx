@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Shield, Eye, Users, Camera } from 'lucide-react';
-import aboutImage from '@/assets/about-safari.png';
+import aboutImage from '@/assets/about-safari.jpg';
 
 const features = [
   { icon: Shield, label: 'Safe & Secure' },

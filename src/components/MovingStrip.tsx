@@ -1,10 +1,10 @@
 import leopardImage from '@/assets/leopard-portrait.jpg';
 import jungleImage from '@/assets/jungle-trail.jpg';
-import safariImage from '@/assets/about-safari.png';
+import safariImage from '@/assets/about-safari.jpg';
 import campfireImage from '@/assets/private-safari.jpg';
 import sunsetImage from '@/assets/sunset-safari.jpg';
 import wildlifeImage from '@/assets/tracking.jpg';
-import memoriesImage from '@/assets/memories.png';
+import memoriesImage from '@/assets/memories.jpg';
 
 const images = [
   { src: leopardImage, alt: 'Leopard' },

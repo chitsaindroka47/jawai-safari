@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import jungleImage from "@/assets/jungle-trail.jpg";
 import trackingImage from "@/assets/tracking.jpg";
 import leopardImage from "@/assets/leopard-portrait.jpg";
-import memoriesImage from "@/assets/memories.png";
+import memoriesImage from "@/assets/memories.jpg";
 import sunsetImage from "@/assets/potrait.jpg";
 
 const images = [
