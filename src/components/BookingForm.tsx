@@ -44,7 +44,7 @@ Guests: ${formData.guests}
 Message: ${formData.message || 'No additional message'}`;
 
     window.open(
-      `https://wa.me/918619821140?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919636427393?text=${encodeURIComponent(message)}`,
       '_blank'
     );
 
