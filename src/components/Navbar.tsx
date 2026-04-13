@@ -88,7 +88,13 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
                   className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors duration-300"
                 >
                   {link.name}
@@ -100,7 +106,13 @@ const Navbar = () => {
               </div>
               <a
                 href="#booking"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
                 className="btn-safari text-center mt-2"
               >
                 Book Now

@@ -25,13 +25,13 @@ const FloatingChat = () => {
       name: 'WhatsApp',
       icon: MessageCircle,
       color: 'bg-green-500',
-      action: () => window.open('https://wa.me/918619821140?text=Hello! I am interested in booking a safari.', '_blank'),
+      action: () => window.open('https://wa.me/919636427393?text=Hello! I am interested in booking a safari.', '_blank'),
     },
     {
       name: 'Call Now',
       icon: Phone,
       color: 'bg-blue-500',
-      action: () => window.open('tel:+918619821140', '_blank'),
+      action: () => window.open('tel:+919636427393', '_blank'),
     },
     {
       name: 'Email',

@@ -112,7 +112,7 @@ const Footer = () => {
             className="flex flex-wrap justify-center gap-6 mb-8 text-muted-foreground"
           >
             <a
-              href="tel:+918619821140"
+              href="tel:+919636427393"
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Phone size={18} className="text-primary" />

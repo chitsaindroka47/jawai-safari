@@ -4,7 +4,7 @@ import heroImage from '@/assets/hero-leopard.jpg';
 
 const Hero = () => {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/918619821140?text=Hello! I am interested in booking a safari.', '_blank');
+    window.open('https://wa.me/919636427393?text=Hello! I am interested in booking a safari.', '_blank');
   };
 
   return (
